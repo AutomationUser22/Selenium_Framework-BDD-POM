@@ -15,15 +15,14 @@ public class WebElementUtil {
 
     /**
      * @param locator Takes CSS selector as String
-     * @param driver Current webdriver element
+     * @param driver  Current webdriver element
      * @return WebElement if element found on page else throws NoSuchElementException
      * exception
      */
     public WebElement getElement(String locator, WebDriver driver) throws NoSuchElementException {
         try {
             webElement = driver.findElement(By.cssSelector(locator));
-        }
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             softAssert.fail(e.getMessage());
             throw new NoSuchElementException(locator);
         }
@@ -32,7 +31,7 @@ public class WebElementUtil {
     }
 
     /**
-     * @param locator Takes CSS selector as String
+     * @param locator       Takes CSS selector as String
      * @param parentElement parent WebElement in which you are looking for element
      * @return WebElement if element found on page else throws NoSuchElementException
      * exception
@@ -40,8 +39,7 @@ public class WebElementUtil {
     public WebElement getElement(String locator, WebElement parentElement) throws NoSuchElementException {
         try {
             webElement = parentElement.findElement(By.cssSelector(locator));
-        }
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             softAssert.fail(e.getMessage());
             throw new NoSuchElementException(locator);
         }
@@ -51,7 +49,7 @@ public class WebElementUtil {
 
     /**
      * @param locator Takes CSS selector as String
-     * @param driver Current webdriver element
+     * @param driver  Current webdriver element
      * @return WebElements list if found else throws NoSuchElementException
      * exception
      */
@@ -59,8 +57,7 @@ public class WebElementUtil {
         List<WebElement> webElements;
         try {
             webElements = driver.findElements(By.cssSelector(locator));
-        }
-        catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             softAssert.fail(e.getMessage());
             throw new NoSuchElementException(locator);
         }
