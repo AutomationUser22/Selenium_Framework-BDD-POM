@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import pageModel.LoginPage;
 
 import java.time.Duration;
 import java.util.List;
@@ -16,7 +17,10 @@ import java.util.List;
 public class simpleTest {
     public static void main(String[] args) {
 
+        LoginPage loginPage = new LoginPage();
+
         WebElementUtil webElementUtil = new WebElementUtil();
+
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(new ChromeOptions().addArguments("--disable-search-engine-choice-screen"));
@@ -26,9 +30,9 @@ public class simpleTest {
 
         driver.get("https://rahulshettyacademy.com/client");
 
-        webElementUtil.getElement("#userEmail", driver).sendKeys("test199191@test.com");
-        webElementUtil.getElement("#userPassword", driver).sendKeys("Test@123");
-        webElementUtil.getElement("#login", driver).click();
+        loginPage.getUserEmail(driver).sendKeys("test199191@test.com");
+        loginPage.getPassword(driver).sendKeys("Test@123");
+        loginPage.getLoginButton(driver).click();
 
         List<WebElement> arrayList = webElementUtil.getElements(".mb-3", driver);
 
@@ -54,5 +58,11 @@ public class simpleTest {
         });
         webElementUtil.getElement(".totalRow button", driver).click();
 
+        webElementUtil.getElement("[placeholder='Select Country']", driver).sendKeys("india");
+        wait.until(ExpectedConditions.visibilityOf(webElementUtil.getElement(".ta-results", driver)));
+        webElementUtil.getElement(".ta-item:nth-of-type(2)", driver).click();
+        webElementUtil.getElement(".action__submit", driver).click();
+        Assert.assertEquals(webElementUtil.getElement(".hero-primary", driver).getText(), "THANKYOU FOR THE ORDER.");
+        driver.quit();
     }
 }
