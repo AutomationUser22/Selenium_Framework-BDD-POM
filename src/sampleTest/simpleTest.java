@@ -1,6 +1,7 @@
 package sampleTest;
 
 import main.util.DriverUtil;
+import main.util.PropReaderUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,27 +21,29 @@ public class simpleTest {
         CartPage cartPage = new CartPage();
         CheckOutPage checkOutPage = new CheckOutPage();
         DriverUtil driverUtil = new DriverUtil();
+        PropReaderUtil propReaderUtil = new PropReaderUtil();
 
-        WebDriver driver = driverUtil.getDriver("chrome");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriver driver = driverUtil.getDriver(propReaderUtil.getBrowser());
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(propReaderUtil.
+                getDefaultExplicitWaitInSeconds()));
 
         /* Navigate to The Website*/
-        driver.get("https://rahulshettyacademy.com/client");
+        driver.get(propReaderUtil.getBaseURL());
 
         /* Login Page */
-        loginPage.getUserEmail(driver).sendKeys("test199191@test.com");
-        loginPage.getPassword(driver).sendKeys("Test@123");
+        loginPage.getUserEmail(driver).sendKeys(propReaderUtil.getUserName());
+        loginPage.getPassword(driver).sendKeys(propReaderUtil.getPassword());
         loginPage.getLoginButton(driver).click();
 
         /* Product List Page */
-        productListPage.clickProductButton(driver, "ZARA");
+        productListPage.clickProductButton(driver, propReaderUtil.getSelectedProductText());
         wait.until(ExpectedConditions.invisibilityOf(productListPage.getAnimationElement(driver)));
         wait.until(ExpectedConditions.visibilityOf(productListPage.getSuccessMessage(driver)));
         productListPage.getCartButton(driver).click();
 
         /* Add to Cart Page */
         cartPage.getCartItems(driver).forEach(webElement -> {
-            if (webElement.getText().contains("ZARA")) {
+            if (webElement.getText().contains(propReaderUtil.getSelectedProductText())) {
                 Assert.assertTrue(true);
             } else {
                 Assert.fail();
@@ -49,11 +52,12 @@ public class simpleTest {
         cartPage.getCartButton(driver).click();
 
         /* Checkout Page */
-        checkOutPage.getCountryTextBox(driver).sendKeys("india");
+        checkOutPage.getCountryTextBox(driver).sendKeys(propReaderUtil.getOrderCountry());
         wait.until(ExpectedConditions.visibilityOf(checkOutPage.getCountryDropDown(driver)));
         checkOutPage.getExactCountyFromDropDown(driver).click();
         checkOutPage.getPlaceOrderButton(driver).click();
-        Assert.assertEquals(checkOutPage.getSuccessMessage(driver).getText(), "THANKYOU FOR THE ORDER.");
+        Assert.assertEquals(checkOutPage.getSuccessMessage(driver).getText(),
+                propReaderUtil.getOrderConfirmationText());
 
         /* Closing the browser */
         driverUtil.quitDriver(driver);

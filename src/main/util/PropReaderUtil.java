@@ -31,4 +31,31 @@ public class PropReaderUtil {
         return propLoad().getProperty("password");
     }
 
+    public String getBrowser() {
+        return propLoad().getProperty("browser");
+    }
+
+    public String getChromeOptions() {
+        return propLoad().getProperty("chromeOptions");
+    }
+
+    public long getDefaultImplicitWaitInSeconds() {
+        return Long.parseLong(propLoad().getProperty("defaultImplicitWaitInSeconds"));
+    }
+
+    public String getSelectedProductText() {
+        return propLoad().getProperty("selectedProductText");
+    }
+
+    public long getDefaultExplicitWaitInSeconds() {
+        return Long.parseLong(propLoad().getProperty("defaultExplicitWaitInSeconds"));
+    }
+
+    public String getOrderConfirmationText() {
+        return propLoad().getProperty("orderConfirmationText");
+    }
+
+    public String getOrderCountry() {
+        return propLoad().getProperty("orderCountry");
+    }
 }

@@ -10,6 +10,8 @@ import java.time.Duration;
 
 public class DriverUtil {
 
+    private final PropReaderUtil propReaderUtil = new PropReaderUtil();
+
     public WebDriver getDriver(String browser) {
         WebDriver driver;
         if (browser.equals("firefox")) {
@@ -17,10 +19,10 @@ public class DriverUtil {
             driver = new FirefoxDriver();
         } else {
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver(new ChromeOptions().addArguments("--disable-search-engine-choice-screen"));
+            driver = new ChromeDriver(new ChromeOptions().addArguments(propReaderUtil.getChromeOptions()));
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(propReaderUtil.getDefaultImplicitWaitInSeconds()));
         return driver;
     }
 
