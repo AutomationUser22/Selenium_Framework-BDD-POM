@@ -1,4 +1,4 @@
-package main.util;
+package util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,7 +9,7 @@ public class PropReaderUtil {
     private Properties propLoad() {
         Properties props = null;
         try {
-            FileInputStream fileInputStream = new FileInputStream("./src/config/config.properties");
+            FileInputStream fileInputStream = new FileInputStream("./src/main/java/config/config.properties");
             props = new Properties();
             props.load(fileInputStream);
         } catch (IOException e) {

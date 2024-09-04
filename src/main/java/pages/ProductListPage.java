@@ -1,6 +1,6 @@
 package pages;
 
-import main.util.WebElementUtil;
+import util.WebElementUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 

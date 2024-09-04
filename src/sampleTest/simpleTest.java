@@ -1,7 +1,7 @@
-package sample;
+package sampleTest;
 
-import main.util.DriverUtil;
-import main.util.PropReaderUtil;
+import util.DriverUtil;
+import util.PropReaderUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +13,7 @@ import pages.ProductListPage;
 
 import java.time.Duration;
 
-public class simple {
+public class simpleTest {
     public static void main(String[] args) {
 
         LoginPage loginPage = new LoginPage();
