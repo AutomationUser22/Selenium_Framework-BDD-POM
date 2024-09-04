@@ -1,4 +1,4 @@
-package pageModel;
+package pages;
 
 import main.util.WebElementUtil;
 import org.openqa.selenium.WebDriver;

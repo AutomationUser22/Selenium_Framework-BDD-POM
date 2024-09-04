@@ -1,4 +1,4 @@
-package sampleTest;
+package sample;
 
 import main.util.DriverUtil;
 import main.util.PropReaderUtil;
@@ -6,14 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import pageModel.CartPage;
-import pageModel.CheckOutPage;
-import pageModel.LoginPage;
-import pageModel.ProductListPage;
+import pages.CartPage;
+import pages.CheckOutPage;
+import pages.LoginPage;
+import pages.ProductListPage;
 
 import java.time.Duration;
 
-public class simpleTest {
+public class simple {
     public static void main(String[] args) {
 
         LoginPage loginPage = new LoginPage();
@@ -23,7 +23,7 @@ public class simpleTest {
         DriverUtil driverUtil = new DriverUtil();
         PropReaderUtil propReaderUtil = new PropReaderUtil();
 
-        WebDriver driver = driverUtil.getDriver(propReaderUtil.getBrowser());
+        WebDriver driver = driverUtil.driverSetUp(propReaderUtil.getBrowser());
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(propReaderUtil.
                 getDefaultExplicitWaitInSeconds()));
 
@@ -60,6 +60,6 @@ public class simpleTest {
                 propReaderUtil.getOrderConfirmationText());
 
         /* Closing the browser */
-        driverUtil.quitDriver(driver);
+        driverUtil.tearDown(driver);
     }
 }

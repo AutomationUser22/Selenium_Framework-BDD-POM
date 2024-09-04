@@ -12,7 +12,7 @@ public class DriverUtil {
 
     private final PropReaderUtil propReaderUtil = new PropReaderUtil();
 
-    public WebDriver getDriver(String browser) {
+    public WebDriver driverSetUp(String browser) {
         WebDriver driver;
         if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
@@ -26,7 +26,7 @@ public class DriverUtil {
         return driver;
     }
 
-    public void quitDriver(WebDriver driver) {
+    public void tearDown(WebDriver driver) {
         driver.quit();
     }
 }
