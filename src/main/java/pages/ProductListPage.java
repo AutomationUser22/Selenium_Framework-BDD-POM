@@ -26,10 +26,6 @@ public class ProductListPage {
         return webElementUtil.getElement(".ng-animating", driver);
     }
 
-    public WebElement getSuccessMessage(WebDriver driver) {
-        return webElementUtil.getElement("#toast-container", driver);
-    }
-
     public WebElement getCartButton(WebDriver driver) {
         return webElementUtil.getElement("[routerlink*='cart']", driver);
     }

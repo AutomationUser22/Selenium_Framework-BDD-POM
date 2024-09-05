@@ -58,4 +58,12 @@ public class PropReaderUtil {
     public String getOrderCountry() {
         return propLoad().getProperty("orderCountry");
     }
+
+    public String getProjectARN() {
+        return propLoad().getProperty("projectARN");
+    }
+
+    public String getLocalOrCloud() {
+        return propLoad().getProperty("localOrCloud");
+    }
 }

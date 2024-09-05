@@ -44,7 +44,6 @@ public class orderCreationStepDef {
     @And("User adds ZARA product to the Cart")
     public void userAddsZARAProductToTheCart() {
         productListPage.clickProductButton(driver, propReaderUtil.getSelectedProductText());
-        wait.until(ExpectedConditions.visibilityOf(productListPage.getSuccessMessage(driver)));
         wait.until(ExpectedConditions.invisibilityOf(productListPage.getAnimationElement(driver)));
         productListPage.getCartButton(driver).click();
     }
