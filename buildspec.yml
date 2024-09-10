@@ -8,6 +8,7 @@ phases:
       # Installing Java 21
       - sudo amazon-linux-extras enable corretto8
       - sudo yum install java-21-openjdk-devel -y
+      - sudo yum install -y amazon-linux-extras
       #Installing Maven
       - wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
       - yum install apache-maven
