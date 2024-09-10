@@ -8,9 +8,10 @@ phases:
       # Installing Java 21
       - yes | sudo yum install java-22-amazon-corretto-devel
       #Installing Maven
-      - sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-      - sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-      - yes | sudo yum install apache-maven
+      - sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+      - sudo tar xvf apache-maven-3.9.9-bin.tar.gz -C /opt
+      - sudo ln -s /opt/apache-maven-3.9.9 /opt/maven
+      - mvn -version
       # Installing chrome
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
       - yes | sudo yum install ./google-chrome-stable_current_x86_64.rpm
