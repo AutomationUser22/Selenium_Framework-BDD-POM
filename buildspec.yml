@@ -6,7 +6,7 @@ phases:
       # Installing linux dependencies
       - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
       # Installing Java 21
-      - sudo yum install java-21-amazon-corretto-devel
+      - sudo yum install java-22-amazon-corretto-devel
       #Installing Maven
       - sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
       - sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
