@@ -5,10 +5,8 @@ phases:
     commands:
       # Installing linux dependencies
       - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
-      - sudo yum install -y amazon-linux-extras
       # Installing Java 21
-      - sudo amazon-linux-extras enable corretto8
-      - sudo yum install java-21-openjdk-devel -y
+      - sudo yum install java-21-amazon-corretto-devel
       #Installing Maven
       - wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
       - yum install apache-maven
