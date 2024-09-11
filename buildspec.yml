@@ -7,6 +7,9 @@ phases:
       - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
       # Installing Java 21
       - yes | sudo yum install java-22-amazon-corretto-devel
+      - which javac
+      - ls -l /usr/bin/java
+      - ls -l /etc/alternatives/java
       #Installing Maven
       - sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
       - sudo tar xvf apache-maven-3.9.9-bin.tar.gz -C /opt
