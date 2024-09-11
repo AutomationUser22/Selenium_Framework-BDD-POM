@@ -8,6 +8,7 @@ phases:
       # Installing Java 21
       - yes | sudo yum install java-22-amazon-corretto-devel
       - which -a java | xargs -I{} echo "echo {};{} -version;echo" | sh
+      - sudo alternatives --config java
       - export JAVA_HOME=/usr/lib/jvm/java-22-amazon-corretto.x86_64/bin/java
       #Installing Maven
       - sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
