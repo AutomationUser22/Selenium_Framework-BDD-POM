@@ -11,7 +11,7 @@ phases:
       #Installing Maven
       - sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
       - sudo tar xvf apache-maven-3.9.9-bin.tar.gz -C /opt
-      - sudo ln -s /opt/apache-maven-3.9.9 /opt/maven
+      - sudo ln -s /opt/apache-maven-3.9.9 /opt
       - mvn -version
       # Installing chrome
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
