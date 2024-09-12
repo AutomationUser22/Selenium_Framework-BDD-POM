@@ -5,14 +5,6 @@ phases:
     commands:
       # Installing linux dependencies
       - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
-      # Installing Java 21
-      - yes | sudo yum install java-22-amazon-corretto-devel
-      - echo 5 | sudo alternatives --config java
-      #Installing Maven
-      - sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
-      - sudo tar xvf apache-maven-3.9.9-bin.tar.gz -C /opt
-      - sudo ln -s /opt/apache-maven-3.9.9 /opt
-      - mvn -version
       # Installing chrome
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
       - yes | sudo yum install ./google-chrome-stable_current_x86_64.rpm
