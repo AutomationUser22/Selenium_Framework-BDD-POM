@@ -1,16 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      # Installing linux dependencies
-      - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
-      # Installing chrome
-      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-      - yes | sudo yum install ./google-chrome-stable_current_x86_64.rpm
-      - sudo ln -s /usr/bin/google-chrome-stable /usr/bin/chromium
-      - curl https://intoli.com/install-google-chrome.sh | bash
-
   build:
     commands:
       mvn clean compile test
