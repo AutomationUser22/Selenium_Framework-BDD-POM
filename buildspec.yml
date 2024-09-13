@@ -3,11 +3,10 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - mvn clean
+      - mvn clean compile test
 
   post_build:
     commands:
-      - mvn compile test
       - aws sns publish --topic-arn arn:aws:sns:us-east-1:444082408997:Selenium_BDD_Framework_Email_with_Status_Report --message "Create Test Report and send the Email"
 
 artifacts:
